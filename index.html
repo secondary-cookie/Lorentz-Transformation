@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lorentz Transformation</title>
     <style>
-        /* --- Styles --- */
         :root {
             --bg: #050505;
             --panel: #111;
@@ -18,7 +17,6 @@
 
         body { margin: 0; overflow: hidden; background: var(--bg); color: var(--text); font-family: 'Segoe UI', sans-serif; display: flex; }
 
-        /* Sidebar */
         #sidebar {
             width: 380px; min-width: 380px; background: var(--panel); border-right: 1px solid var(--border);
             display: flex; flex-direction: column; height: 100vh; z-index: 10;
@@ -30,7 +28,6 @@
 
         .content { padding: 20px; overflow-y: auto; flex: 1; }
         
-        /* Controls */
         .control-box { background: #1a1a1a; padding: 15px; border-radius: 8px; border: 1px solid #333; margin-bottom: 20px; }
         .row { display: flex; gap: 10px; margin-top: 10px; }
         input { background: #000; border: 1px solid #555; color: #fff; padding: 10px; width: 60px; text-align: center; border-radius: 4px; font-size: 1rem; }
@@ -38,7 +35,6 @@
         .btn-go { background: var(--blue); } .btn-go:hover { filter: brightness(1.1); }
         .btn-back { background: #444; color: #fff; } .btn-back:hover { background: #555; }
 
-        /* Math Display */
         .section-title { font-size: 0.75rem; color: #888; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold;}
         .math-display {
             background: rgba(255,255,255,0.05); padding: 15px; border-radius: 6px; 
@@ -50,19 +46,16 @@
         .var { opacity: 0.7; }
         .relation-note { font-size: 0.8rem; color: #666; margin-top: 8px; font-family: 'Segoe UI', sans-serif; border-top: 1px dashed #333; padding-top: 8px;}
 
-        /* Legend */
         .legend-box { border-top: 1px solid #333; padding-top: 15px; }
         .legend-item { display: flex; align-items: center; margin-bottom: 10px; font-size: 0.9rem; color: #ccc; }
         .icon { width: 12px; height: 12px; border-radius: 50%; margin-right: 10px; display: inline-block; }
         .line-icon { width: 20px; height: 3px; margin-right: 10px; display: inline-block; }
 
-        /* Canvas */
         #canvas-area { flex: 1; position: relative; cursor: grab; background: #000; }
         #canvas-area:active { cursor: grabbing; }
         canvas { display: block; }
         .hud { position: absolute; bottom: 10px; right: 10px; color: #555; font-size: 0.7rem; pointer-events: none;}
 
-        /* --- COMMUNITY FEATURES --- */
         #discuss-btn {
             position: fixed;
             top: 20px; right: 20px;
@@ -188,26 +181,25 @@
         </p>
         
         <script src="https://giscus.app/client.js"
-                data-repo="secondary-cookie/Lorentz-Transformation"
-                data-repo-id="R_kgDOQcdnZg"
-                data-category="General"
-                data-category-id="DIC_kwDOQcdnZs4CzEBJ"
-                data-mapping="pathname"
-                data-strict="0"
-                data-reactions-enabled="1"
-                data-emit-metadata="0"
-                data-input-position="top"
-                data-theme="catppuccin_macchiato"
-                data-lang="en"
-                data-loading="lazy"
-                crossorigin="anonymous"
-                async>
+            data-repo="secondary-cookie/Lorentz-Transformation"
+            data-repo-id="R_kgDOQcdnZg"
+            data-category="General"
+            data-category-id="DIC_kwDOQcdnZs4CzEBJ"
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="catppuccin_macchiato"
+            data-lang="en"
+            data-loading="lazy"
+            crossorigin="anonymous"
+            async>
         </script>
-        </div>
+    </div>
 </div>
 
 <script>
-    // --- Drawer Logic ---
     function toggleDrawer() {
         const drawer = document.getElementById('discussion-drawer');
         const overlay = document.getElementById('drawer-overlay');
@@ -215,7 +207,6 @@
         overlay.classList.toggle('active');
     }
 
-    // --- Config ---
     const CFG = {
         scale: 100, 
         colors: {
@@ -295,7 +286,7 @@
     
     function run() { 
         let raw = document.getElementById('inpBeta').value;
-        raw = raw.replace(/。/g, "."); // Fix Chinese period
+        raw = raw.replace(/。/g, "."); 
         let v = parseFloat(raw);
         if (isNaN(v)) { alert("Please enter a valid number (e.g., 0.6)."); return; }
         state.target = Math.max(-0.99, Math.min(0.99, v)); 
